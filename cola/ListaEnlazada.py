@@ -6,6 +6,34 @@ class Nodo:
     def __str__(self):
         return str(self.carga)
 
+    def imprimeAlReves(self):
+        if self.siguiente != None:
+            cola = self.siguiente
+            cola.imprimeAlReves()
+        print(self.carga, end=' ')
+
+
+class ListaEnlazada:
+    def __init__(self):
+        self.longitud = 0
+        self.cabeza = None
+
+    def imprimeAlReves(self):
+        print( "[", end='')
+        if self.cabeza != None:
+            self.cabeza.imprimeAlReves()
+        print("]", end='')
+
+    def agregaPrimero(self, carga):
+        if self.cabeza == None:
+            self.cabeza = Nodo(carga)
+            return
+        nodo = Nodo(carga)
+        nodo.siguiente = self.cabeza
+        self.cabeza = nodo
+        self.longitud += 1
+
+
 def imprimeLista(nodo):
     print("[", end='')
     while nodo:
@@ -42,6 +70,7 @@ def imprimeAlRevesBonito(lista):
         print(cabeza, end='')
     print(']')
 
+
 if __name__ == '__main__':
     nodo1 = Nodo(1)
     nodo2 = Nodo(2)
@@ -50,3 +79,4 @@ if __name__ == '__main__':
     nodo2.siguiente = nodo3
     imprimeLista(nodo1)
     imprimeAlRevesBonito(nodo1)
+
