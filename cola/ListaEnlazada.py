@@ -21,7 +21,7 @@ def imprimeAlReves(lista):
     cabeza = lista
     cola = lista.siguiente
     imprimeAlReves(cola)
-    print(cabeza, end=' ')
+    print(cabeza, end=', ')
 
 def eliminaSegundo(lista):
     if lista == None: return
@@ -33,6 +33,15 @@ def eliminaSegundo(lista):
     segundo.siguiente = None
     return segundo
 
+def imprimeAlRevesBonito(lista):
+    print("[", end='')
+    if lista != None:
+        cabeza = lista
+        cola = lista.siguiente
+        imprimeAlReves(cola)
+        print(cabeza, end='')
+    print(']')
+
 if __name__ == '__main__':
     nodo1 = Nodo(1)
     nodo2 = Nodo(2)
@@ -40,6 +49,4 @@ if __name__ == '__main__':
     nodo1.siguiente = nodo2
     nodo2.siguiente = nodo3
     imprimeLista(nodo1)
-    eliminado = eliminaSegundo(nodo1)
-    imprimeLista(eliminado)
-    imprimeLista(nodo1)
+    imprimeAlRevesBonito(nodo1)
