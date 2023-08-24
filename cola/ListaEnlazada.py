@@ -7,10 +7,14 @@ class Nodo:
         return str(self.carga)
 
 def imprimeLista(nodo):
+    print("[", end='')
     while nodo:
-        print(nodo);
+        if nodo.siguiente == None:
+            print(nodo, end='')
+        else:
+            print(nodo, end=', ');
         nodo = nodo.siguiente
-    print()
+    print(']')
 
 if __name__ == '__main__':
     nodo1 = Nodo(1)
