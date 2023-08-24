@@ -23,6 +23,16 @@ def imprimeAlReves(lista):
     imprimeAlReves(cola)
     print(cabeza, end=' ')
 
+def eliminaSegundo(lista):
+    if lista == None: return
+    primero = lista
+    segundo = lista.siguiente
+    # Haz que el primer Nodo apunte al tercero
+    primero.siguiente = segundo.siguiente
+    # separar el segundo nodo del resto de la lista
+    segundo.siguiente = None
+    return segundo
+
 if __name__ == '__main__':
     nodo1 = Nodo(1)
     nodo2 = Nodo(2)
@@ -30,4 +40,6 @@ if __name__ == '__main__':
     nodo1.siguiente = nodo2
     nodo2.siguiente = nodo3
     imprimeLista(nodo1)
-    imprimeAlReves(nodo1)
+    eliminado = eliminaSegundo(nodo1)
+    imprimeLista(eliminado)
+    imprimeLista(nodo1)
