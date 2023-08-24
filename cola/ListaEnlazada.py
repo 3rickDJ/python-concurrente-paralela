@@ -16,6 +16,13 @@ def imprimeLista(nodo):
         nodo = nodo.siguiente
     print(']')
 
+def imprimeAlReves(lista):
+    if lista == None: return
+    cabeza = lista
+    cola = lista.siguiente
+    imprimeAlReves(cola)
+    print(cabeza, end=' ')
+
 if __name__ == '__main__':
     nodo1 = Nodo(1)
     nodo2 = Nodo(2)
@@ -23,3 +30,4 @@ if __name__ == '__main__':
     nodo1.siguiente = nodo2
     nodo2.siguiente = nodo3
     imprimeLista(nodo1)
+    imprimeAlReves(nodo1)
