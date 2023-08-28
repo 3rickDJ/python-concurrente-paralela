@@ -10,3 +10,15 @@ class Pila:
 
     def isEmpty(self):
         return self.elementos == []
+
+if __name__ == '__main__':
+    s = Pila()
+    s.push(1)
+    s.push("hola")
+    s.push(3)
+    s.push("🐥")
+    s.push([])
+    while not s.isEmpty():
+        print(s.pop(), end=' ')
+    print()
+
